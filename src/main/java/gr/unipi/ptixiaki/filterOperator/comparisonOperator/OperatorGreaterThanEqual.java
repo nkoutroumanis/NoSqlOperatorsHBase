@@ -17,4 +17,9 @@ public class OperatorGreaterThanEqual extends ComparisonOperator {
 
     }
 
+    @Override
+    protected String getOperatorJsonField() {
+        return "gte";
+    }
+
 }

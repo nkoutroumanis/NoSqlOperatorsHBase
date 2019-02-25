@@ -17,5 +17,10 @@ public class OperatorLessThanEqual extends ComparisonOperator {
 
     }
 
+    @Override
+    protected String getOperatorJsonField() {
+        return "lte";
+    }
+
 
 }

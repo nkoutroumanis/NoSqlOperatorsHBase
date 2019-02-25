@@ -77,4 +77,8 @@ public final class NoSqlDbSystem {
         return new NoSqlDbSystem.Builder(NoSqlDb.HBASE);
     }
 
+    public static Builder MongoDB() {
+        return new NoSqlDbSystem.Builder(NoSqlDb.MONGODB);
+    }
+
 }
