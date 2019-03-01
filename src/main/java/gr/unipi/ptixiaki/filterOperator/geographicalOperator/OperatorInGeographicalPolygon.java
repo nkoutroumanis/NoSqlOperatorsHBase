@@ -25,9 +25,8 @@ public class OperatorInGeographicalPolygon extends GeographicalOperatorBasedOnPo
     }
 
     @Override
-    YYY getYYY(){
+    YYY getYYY() {
 
     }
-
 
 }

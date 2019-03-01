@@ -17,7 +17,7 @@ public class HBaseConnector implements NoSqlDbConnector {
 
     private Connection conn;
 
-    private HBaseConnector(String host, int port, String username, String password, String database){
+    private HBaseConnector(String host, int port, String username, String password, String database) {
         this.host = host;
         this.port = port;
         this.username = username;
@@ -51,7 +51,7 @@ public class HBaseConnector implements NoSqlDbConnector {
         }
     }
 
-    public static HBaseConnector newHBaseConnector(String host, int port, String username, String password, String database){
+    public static HBaseConnector newHBaseConnector(String host, int port, String username, String password, String database) {
         return new HBaseConnector(host, port, username, password, database);
     }
 

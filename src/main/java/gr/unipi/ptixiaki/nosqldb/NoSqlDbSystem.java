@@ -1,8 +1,5 @@
 package gr.unipi.ptixiaki.nosqldb;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public final class NoSqlDbSystem {
 
     public static class Builder {

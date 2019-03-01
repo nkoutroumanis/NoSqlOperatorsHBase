@@ -20,8 +20,7 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
     }
 
     @Override
-    YYY getYYY(){
-
+    YYY getYYY() {
 
 
         Morton64 m = new Morton64(3, (long) bitNum);
@@ -55,41 +54,41 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
         //2.if the given search value is bigger than the values in our data set, start from the maximum value of our data set
         if (X1 < minX) {
             X1 = minX;
-            System.out.println("X1 number too small. Lowest value in the dataset for X1 was "+minX+" . Setting value for X1 to "+minX);
+            System.out.println("X1 number too small. Lowest value in the dataset for X1 was " + minX + " . Setting value for X1 to " + minX);
         }
         if (X2 > maxX) {
             X2 = maxX;
-            System.out.println("X2 number too big. Biggest value in the dataset for X2 was "+maxX+" . Setting value for X2 to "+maxX);
+            System.out.println("X2 number too big. Biggest value in the dataset for X2 was " + maxX + " . Setting value for X2 to " + maxX);
         }
         if (Y1 < minY) {
             Y1 = minY;
-            System.out.println("Y1 number too small. Lowest value in the dataset for Y1 was "+minY+" . Setting value for Y1 to "+minY);
+            System.out.println("Y1 number too small. Lowest value in the dataset for Y1 was " + minY + " . Setting value for Y1 to " + minY);
         }
         if (Y2 > maxY) {
             Y2 = maxY;
-            System.out.println("Y2 number too big. Biggest value in the dataset for Y2 was "+maxY+" . Setting value for Y2 to "+maxY);
+            System.out.println("Y2 number too big. Biggest value in the dataset for Y2 was " + maxY + " . Setting value for Y2 to " + maxY);
         }
         if (Z1 < minZ) {
             Z1 = minZ;
-            System.out.println("Z1 number too small. Lowest value in the dataset for Z1 was "+minZ+" . Setting value for Z1 to "+minZ);
+            System.out.println("Z1 number too small. Lowest value in the dataset for Z1 was " + minZ + " . Setting value for Z1 to " + minZ);
         }
         if (Z2 > maxZ) {
             Z2 = maxZ;
-            System.out.println("Z2 number too big. Biggest value in the dataset for Z2 was "+maxZ+" . Setting value for Z2 to "+maxZ);
+            System.out.println("Z2 number too big. Biggest value in the dataset for Z2 was " + maxZ + " . Setting value for Z2 to " + maxZ);
         }
         //finished checking if the range input is valid
 
         //find the cells where our values in (x1,x2) (y1,y2) (z1,z2) belong
         int power = (int) Math.pow(2, bitNum);
 
-        int startCellX = (int)( (((X1 - minX) * (power -1)) / (maxX - minX)) );
-        int startCellY = (int)( (((Y1 - minY) * (power -1)) / (maxY - minY)) );
-        int startCellZ = (int)( (((Z1 - minZ) * (power -1)) / (maxZ - minZ)) );
+        int startCellX = (int) ((((X1 - minX) * (power - 1)) / (maxX - minX)));
+        int startCellY = (int) ((((Y1 - minY) * (power - 1)) / (maxY - minY)));
+        int startCellZ = (int) ((((Z1 - minZ) * (power - 1)) / (maxZ - minZ)));
 
 
-        int endCellX   = (int)Math.floor( (((X2 - minX) * (power -1)) / (maxX - minX)));
-        int endCellY   = (int)Math.floor( (((Y2 - minY) * (power -1)) / (maxY - minY)) );
-        int endCellZ   = (int)Math.floor( (((Z2 - minZ) * (power -1)) / (maxZ - minZ)) );
+        int endCellX = (int) Math.floor((((X2 - minX) * (power - 1)) / (maxX - minX)));
+        int endCellY = (int) Math.floor((((Y2 - minY) * (power - 1)) / (maxY - minY)));
+        int endCellZ = (int) Math.floor((((Z2 - minZ) * (power - 1)) / (maxZ - minZ)));
 
 
         int numOfCellsX = (endCellX - startCellX) + 1; /////////// <-------- added +1 last value was not showing because x2-x1 takes out the first value
@@ -97,9 +96,9 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
         int numOfCellsZ = (endCellZ - startCellZ) + 1;
 
 
-        System.out.println(power + "       " + ((startCellX))  + "   "     + startCellY  + "   " + startCellZ  + "   "+"startCell");
-        System.out.println(power + "       " + ((endCellX))    + "   "     + endCellY    + "   " + endCellZ    + "   "+"endCell");
-        System.out.println(power + "       " + ((numOfCellsX)) + "   "     + numOfCellsY + "   " + numOfCellsZ + "   "+"numOfCells");
+        System.out.println(power + "       " + ((startCellX)) + "   " + startCellY + "   " + startCellZ + "   " + "startCell");
+        System.out.println(power + "       " + ((endCellX)) + "   " + endCellY + "   " + endCellZ + "   " + "endCell");
+        System.out.println(power + "       " + ((numOfCellsX)) + "   " + numOfCellsY + "   " + numOfCellsZ + "   " + "numOfCells");
 
 
         long[] x = new long[numOfCellsX];
@@ -128,13 +127,13 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
         /*
          */
 
-        int count =0;
+        int count = 0;
 
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < y.length; j++) {
                 for (int k = 0; k < z.length; k++) {
                     //System.out.println("Packing");
-                    long pack = m.pack(x[i],y[j],z[k]);
+                    long pack = m.pack(x[i], y[j], z[k]);
                     mortonGuess.add(pack);
                     //System.out.println("X "+x[i]+" Y "+y[j]+" Z "+z[k]+" packing... "+pack);
                     //System.out.println("Test Element :"+mortonGuess.get(count));
@@ -154,24 +153,24 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
         long nextValue;
         int counter = 0;
 
-        for (int i = 0;i<mortonGuess.size();i++){
+        for (int i = 0; i < mortonGuess.size(); i++) {
 
             long startValue = mortonGuess.get(i);
             long endValue = mortonGuess.get(i);
             currentValue = startValue;
 
-            for (int j = i+1;j < mortonGuess.size();j++){
+            for (int j = i + 1; j < mortonGuess.size(); j++) {
                 nextValue = mortonGuess.get(j);
 
                 //System.out.println(" i = " + i + " currentValue = " + currentValue + " nextValue = " + nextValue);
 
-                if (nextValue - currentValue == 1){
+                if (nextValue - currentValue == 1) {
                     endValue = nextValue;
                     currentValue = nextValue;
                     i = j;
-                }else if(nextValue == currentValue){
+                } else if (nextValue == currentValue) {
                     i = j;
-                }else {
+                } else {
                     i = j - 1;
                     break;
                 }
@@ -183,12 +182,12 @@ public class OperatorInGeographicalBox extends GeographicalOperatorBasedOnPoints
 
             //System.out.println(" i = " + i + " startValue = " + startValue + " endValue = " + endValue);
             //System.out.println("------------------------Create object from : "+startValue+" to "+endValue+"------------------------");
-            ConsecutiveNumbers consecutive = new ConsecutiveNumbers(startValue,endValue);
+            ConsecutiveNumbers consecutive = new ConsecutiveNumbers(startValue, endValue);
             dataStorageList.add(consecutive);
 
         }
 
-        System.out.println("Counter = "+counter);
+        System.out.println("Counter = " + counter);
 
     }
 

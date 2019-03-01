@@ -1,14 +1,12 @@
 package gr.unipi.ptixiaki.nosqldb;
 
 import com.mongodb.client.MongoCursor;
-import com.mongodb.spark.MongoSpark;
-import com.mongodb.spark.config.ReadConfig;
 import gr.unipi.ptixiaki.filterOperator.FilterOperator;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import scala.collection.JavaConversions;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 final class MongoDBOperators implements NoSqlDbOperators {
 

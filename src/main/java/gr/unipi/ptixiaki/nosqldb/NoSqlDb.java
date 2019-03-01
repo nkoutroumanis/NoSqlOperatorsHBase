@@ -3,7 +3,6 @@ package gr.unipi.ptixiaki.nosqldb;
 enum NoSqlDb {
 
     HBASE {
-
         @Override
         public NoSqlDbConnector createNoSqlDbConnector(String host, int port, String username, String password, String database) {
             return HBaseConnector.newHBaseConnector(host, port, username, password, database);
@@ -78,7 +77,6 @@ enum NoSqlDb {
         }
 
     };
-
 
 
     public abstract NoSqlDbConnector createNoSqlDbConnector(String host, int port, String username, String password, String database);

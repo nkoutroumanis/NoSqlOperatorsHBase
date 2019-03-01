@@ -13,7 +13,7 @@ public class OperatorLessThanEqual extends ComparisonOperator {
     }
 
     @Override
-    YYY getYYY(){
+    YYY getYYY() {
 
     }
 
