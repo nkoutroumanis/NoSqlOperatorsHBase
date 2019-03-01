@@ -12,6 +12,14 @@ public class OperatorInGeographicalTemporalBox extends GeographicalTemporalOpera
         return new OperatorInGeographicalTemporalBox(fieldName, lowerDate, upperDate, lowerBound, upperBound);
     }
 
+    public Coordinates getLowerBound(){
+        return getCoordinatesArray()[0];
+    }
+
+    public Coordinates getUpperBound(){
+        return getCoordinatesArray()[2];
+    }
+
     @Override
     public YYY getYYY() {
 
