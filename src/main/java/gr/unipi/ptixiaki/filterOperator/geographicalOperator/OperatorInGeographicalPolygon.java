@@ -1,5 +1,9 @@
 package gr.unipi.ptixiaki.filterOperator.geographicalOperator;
 
+import org.apache.hadoop.hdfs.server.datanode.DataStorage;
+
+import java.util.List;
+
 public class OperatorInGeographicalPolygon extends GeographicalOperatorBasedOnPoints {
 
     private OperatorInGeographicalPolygon(String fieldName, Coordinates... coordinates) {
@@ -25,7 +29,11 @@ public class OperatorInGeographicalPolygon extends GeographicalOperatorBasedOnPo
     }
 
     @Override
-    YYY getYYY() {
+    public List<DataStorage> getDataStorage() {
+
+        for(Coordinates c : getCoordinatesArray()){
+
+        }
 
     }
 

@@ -1,6 +1,9 @@
 package gr.unipi.ptixiaki.filterOperator.geographicalOperator;
 
+import org.apache.hadoop.hdfs.server.datanode.DataStorage;
+
 import java.util.Date;
+import java.util.List;
 
 public class OperatorInGeographicalTemporalPolygon extends GeographicalTemporalOperatorBasedOnPoints {
 
@@ -13,7 +16,7 @@ public class OperatorInGeographicalTemporalPolygon extends GeographicalTemporalO
     }
 
     @Override
-    public YYY getYYY() {
+    public List<DataStorage> getDataStorage() {
 
     }
 
