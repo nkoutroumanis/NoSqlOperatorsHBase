@@ -26,5 +26,7 @@ public class OperatorInGeographicalTemporalBox extends GeographicalTemporalOpera
     @Override
     public List<DataStorage> getDataStorage() {
 
+        getLowerDate()
+                getUpperDate();
     }
 }
